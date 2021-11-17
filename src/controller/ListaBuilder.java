@@ -23,7 +23,7 @@ public class ListaBuilder {
 					lista1.adicionaElemento(new No(Integer.toString(valor)));
 				}
 				TamanhoLista1++;
-				System.out.println("Numero " + i + " Adicionado na lista 1");
+				System.out.println("Numero " + valor + " Adicionado na lista 1");
 			} else {
 				if (i == 1) {
 					lista2.adicionaPrimeiroElemento(new No(Integer.toString(valor)));
@@ -31,28 +31,52 @@ public class ListaBuilder {
 					lista2.adicionaElemento(new No(Integer.toString(valor)));
 				}
 				TamanhoLista2++;
-				System.out.println("Numero " + i + " Adicionado na lista 2");
+				System.out.println("Numero " + valor + " Adicionado na lista 2");
 			}
 		}
 		System.out.println("Lista 1 " + lista1.toString());
 		System.out.println("Lista 2 " + lista2.toString());
+		lista1.adicionaElemento(new No(""));
+		lista2.adicionaElemento(new No(""));
 	}
 
-	public void criar_unica_lista() {
-		System.out.println("Chegou");
+	public int criar_unica_lista() {
 		int TamanhoLista3 = TamanhoLista1 + TamanhoLista2;
-		// for (int j = 0; j < TamanhoLista3; j++) {
+		System.out.println(TamanhoLista3);
 		for (int j = 0; j < TamanhoLista1; j++) {
 			if (j == 0) {
 				lista3.adicionaPrimeiroElemento(new No(lista1.pegaElemento(j)));
 			} else {
-				lista3.adicionaElemento(new No(lista1.pegaElemento(j)));
+				lista3.adicionaElemento(new No(lista1.pegaElemento(j + 1)));
 			}
 		}
 		for (int j = 0; j < TamanhoLista2; j++) {
 
-			lista3.adicionaElemento(new No(lista2.pegaElemento(j)));
+			lista3.adicionaElemento(new No(lista2.pegaElemento(j + 1)));
 		}
 		System.out.println("Lista 3 " + lista3.toString());
+		return TamanhoLista3;
+	}
+
+	public void Ordenar_crescente(int tamanholista) {
+		ListaEncadedaSimples lista_crescente = new ListaEncadedaSimples();
+		lista_crescente = lista3;
+		System.out.println("Lista Original = " + lista_crescente.toString());
+
+		int tamanho = tamanholista;
+		for (int i = 0; i < tamanho; i++) {
+			// System.out.println("Rodada ==> "+i+1);
+			for (int j = 0; j < tamanho - 1; j++) {
+				int numero1 = Integer.parseInt(lista_crescente.pegaElemento(j));
+				int numero2 = Integer.parseInt(lista_crescente.pegaElemento(j+1));
+				
+				if(numero1>numero2) {
+					int aux = numero1;
+					lista_crescente.adicionaPosicao(j, new No(Integer.toString(numero2)));
+					lista_crescente.adicionaPosicao(j+1, new No(Integer.toString(aux)));
+				}
+			}
+		}
+		System.out.println("Lista Crescente = " + lista_crescente.toString());
 	}
 }

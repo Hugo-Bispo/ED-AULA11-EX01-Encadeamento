@@ -10,8 +10,10 @@ public class Principal {
 	public static void main(String[] args) {
 
 		ListaBuilder Builder = new ListaBuilder();
+		int tamanholista = 0;
 		int qtdnumeros = Integer.parseInt(JOptionPane.showInputDialog("Quantos numeros aleatorios serão gerados ? "));
 		Builder.gerarlista(qtdnumeros);
-		Builder.criar_unica_lista();
+		tamanholista = Builder.criar_unica_lista();
+		Builder.Ordenar_crescente(tamanholista);
 	}
 }

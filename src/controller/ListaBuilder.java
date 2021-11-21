@@ -23,7 +23,6 @@ public class ListaBuilder {
 					lista1.adicionaElemento(new No(Integer.toString(valor)));
 				}
 				TamanhoLista1++;
-				System.out.println("Numero " + valor + " Adicionado na lista 1");
 			} else {
 				if (i == 1) {
 					lista2.adicionaPrimeiroElemento(new No(Integer.toString(valor)));
@@ -31,7 +30,6 @@ public class ListaBuilder {
 					lista2.adicionaElemento(new No(Integer.toString(valor)));
 				}
 				TamanhoLista2++;
-				System.out.println("Numero " + valor + " Adicionado na lista 2");
 			}
 		}
 		System.out.println("Lista 1 " + lista1.toString());
@@ -65,7 +63,6 @@ public class ListaBuilder {
 
 		int tamanho = tamanholista;
 		for (int i = 0; i < tamanho; i++) {
-			// System.out.println("Rodada ==> "+i+1);
 			for (int j = 0; j < tamanho - 1; j++) {
 				int numero1 = Integer.parseInt(lista_crescente.pegaElemento(j));
 				int numero2 = Integer.parseInt(lista_crescente.pegaElemento(j+1));
